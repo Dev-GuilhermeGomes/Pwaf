@@ -1,4 +1,5 @@
 import type { Projecto } from '../types'
+import { Link } from 'react-router-dom'
 
 type CartaoProjectoProps = {
   projecto: Projecto
@@ -21,6 +22,12 @@ export default function CartaoProjecto({ projecto }: CartaoProjectoProps) {
                 Concluído
             </p>
         )}
+        <Link
+          to={`/projeto/${projecto.id}`}
+          className="mt-auto rounded-lg bg-slate-700 px-4 py-2 text-center text-sm font-semibold text-white hover:bg-slate-800"
+        >
+          Ver projeto
+        </Link>
     </article>
   )
 }

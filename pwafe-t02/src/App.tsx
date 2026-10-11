@@ -1,6 +1,10 @@
 import CartaoPerfil from './components/cartaoperfil'
 import CartaoProjecto from './components/CartaoProjecto'
-import type { Perfil, Projecto } from './types'
+import PerfilPage from './pages/PerfilPage'
+import { Route, Routes } from 'react-router-dom'
+import type { Perfil } from './types'
+import ProjectoPage from './pages/Projetospage'
+import { projectos } from './Data/dados'
 
 const perfil: Perfil = {
   nome: 'Guilherme Gomes',
@@ -11,33 +15,43 @@ const perfil: Perfil = {
   procuraEstagio: false
 }
 
-const projectos: Projecto[] = [
-  { id: 1, titulo: 'Website', descricao: 'Website para a empresa ', tecnologias: ['React', 'TypeScript', 'Tailwind CSS'], concluido: false },
-  { id: 2, titulo: 'Aplicação Mobile', descricao: 'Aplicação mobile para a empresa ', tecnologias: ['React Native', 'TypeScript'], concluido: true },
-  { id: 3, titulo: 'Sistema de Gestão', descricao: 'Sistema de gestão para a empresa ', tecnologias: ['React', 'Node.js', 'MongoDB'], concluido: true }
-]
-
 function App() {
   return (
-    <main className="min-h-screen bg-slate-100 px-4 py-8 text-left">
-      <div className="mx-auto flex w-full max-w-5xl flex-col gap-8">
-        <section className="flex flex-col gap-3">
-          <h1 className="text-xl font-bold text-slate-900">Perfil</h1>
-          <div className="flex flex-row">
-            <CartaoPerfil perfil={perfil} />
-          </div>
-        </section>
+    <Routes>
+      <Route path="/" element={
+        <main className="min-h-screen bg-slate-100 px-4 py-8 text-left">
+          <div className="mx-auto flex w-full max-w-5xl flex-col gap-8">
+            <section className="flex flex-col gap-3">
+              <h1 className="text-xl font-bold text-slate-900">Perfil</h1>
+              <div className="flex flex-row">
+                <CartaoPerfil perfil={perfil} />
+              </div>
+            </section>
 
-        <section className="flex flex-col gap-3">
-          <h2 className="text-xl font-bold text-slate-900">Projetos</h2>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {projectos.map((projecto) => (
-              <CartaoProjecto key={projecto.id} projecto={projecto} />
-            ))}
+            <section className="flex flex-col gap-3">
+              <h2 className="text-xl font-bold text-slate-900">Projetos concluidos</h2>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                {projectos.filter((projecto) => projecto.concluido).map((projecto) => (
+                  <CartaoProjecto key={projecto.id} projecto={projecto} />
+                ))}
+              </div>
+            </section>
+
+            <section className="flex flex-col gap-3">
+              <h2 className="text-xl font-bold text-slate-900">Projetos em Curso</h2>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                {projectos.filter((projecto) => !projecto.concluido).map((projecto) => (
+                  <CartaoProjecto key={projecto.id} projecto={projecto} />
+                ))}
+              </div>
+            </section>
+
           </div>
-        </section>
-      </div>
-    </main>
+        </main>
+      } />
+      <Route path="/perfil" element={<PerfilPage perfil={perfil} />} />
+      <Route path="/projeto/:id" element={<ProjectoPage projectos={projectos} />} />
+    </Routes>
   )
 }
 export default App
