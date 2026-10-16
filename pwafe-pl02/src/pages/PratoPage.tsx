@@ -25,7 +25,7 @@ export default function PratoPage() {
           ← Voltar à ementa
         </Link>
         <article className="overflow-hidden rounded-3xl border-2 border-stone-200 bg-white shadow-[0_12px_30px_rgba(28,25,23,0.1)]">
-          <img src={prato.imagem} alt={prato.nome} className="h-64 w-full object-cover sm:h-96" />
+          <img src={prato.imagem} alt={prato.nome} className="h-48 w-full object-cover opacity-90 saturate-75 sm:h-64" />
           <div className="p-6 sm:p-10">
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div>

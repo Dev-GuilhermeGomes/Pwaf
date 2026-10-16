@@ -10,7 +10,7 @@ type CartaoPratoProps = {
 export default function CartaoPrato({ prato }: CartaoPratoProps) {
   return (
     <article className="overflow-hidden rounded-xl border border-stone-200 bg-stone-50 shadow-[0_4px_12px_rgba(28,25,23,0.06)] transition-shadow hover:shadow-[0_8px_18px_rgba(28,25,23,0.12)]">
-      <img src={prato.imagem} alt="" className="h-36 w-full object-cover" />
+      <img src={prato.imagem} alt="" className="h-28 w-full object-cover opacity-90 saturate-75" />
       <div className="p-5">
       <div className="flex items-start justify-between gap-4">
         <h3 className="text-lg font-bold leading-snug text-stone-900">{prato.nome}</h3>
