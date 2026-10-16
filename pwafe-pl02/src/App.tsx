@@ -16,7 +16,7 @@ export default function App() {
 	const vegetarianos = pratos.filter((prato) => prato.vegetariano).length;
 
 	return (
-		<main className="min-h-screen bg-[#f4f1e9] px-4 py-6 text-stone-900 sm:px-8 sm:py-10">
+		<main className="min-h-screen bg-white px-4 py-6 text-stone-900 sm:px-8 sm:py-10">
 			<div className="mx-auto max-w-5xl">
 				<header className="relative mb-10 overflow-hidden rounded-3xl bg-[#173f35] px-6 py-10 text-white shadow-[0_18px_40px_rgba(23,63,53,0.2)] sm:px-10 sm:py-14">
 					<div className="relative z-10 max-w-2xl">
