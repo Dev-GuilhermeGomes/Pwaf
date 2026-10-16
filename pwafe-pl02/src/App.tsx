@@ -5,10 +5,21 @@ import ListaPratos from './components/ListaPratos';
 import Preco from './components/Preco';
 import Seccao from './components/Seccao';
 import { pratos } from './data/pratos';
+import { Route, Routes } from 'react-router-dom';
+import PratoPage from './pages/PratoPage';
 
 const soVegetarianos = false;
 
 export default function App() {
+	return (
+		<Routes>
+			<Route path="/prato/:id" element={<PratoPage />} />
+			<Route path="*" element={<EmentaPage />} />
+		</Routes>
+	);
+}
+
+function EmentaPage() {
 	const ementa = soVegetarianos ? pratos.filter((prato) => prato.vegetariano) : pratos;
 	const sopas = ementa.filter((prato) => prato.categoria === 'sopa');
 	const principais = ementa.filter((prato) => prato.categoria === 'prato');
