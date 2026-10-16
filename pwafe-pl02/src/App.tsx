@@ -22,6 +22,7 @@ function EmentaPage() {
 	const sopas = ementa.filter((prato) => prato.categoria === 'sopa');
 	const principais = ementa.filter((prato) => prato.categoria === 'prato');
 	const sobremesas = ementa.filter((prato) => prato.categoria === 'sobremesa');
+	const vegetarianos = pratos.filter((prato) => prato.vegetariano).length;
 
 	return (
 		<main className="min-h-screen bg-sky-100 px-4 py-5 text-slate-700 sm:px-8 sm:py-8">
@@ -30,13 +31,14 @@ function EmentaPage() {
 					<div className="flex items-center justify-between border-b border-sky-200 pb-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500">
 						<span className="font-serif text-lg normal-case tracking-normal text-slate-700">à mesa</span>
 						<span>Restaurante</span>
-						<span>{new Date().toLocaleDateString('pt-PT', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+						<span>16 outubro · 2026</span>
 					</div>
 					<div className="flex flex-col justify-between gap-6 py-8 sm:flex-row sm:items-end">
 						<div>
 							<p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Da ementa à sua mesa</p>
 							<h1 className="font-serif text-5xl leading-none tracking-tight text-slate-700 sm:text-7xl">Ementa de hoje</h1>
 							<p className="mt-4 text-xs text-slate-500">Cozinha do dia, feita com tempo e o melhor de cada estação.</p>
+							<p className="mt-3 text-xs font-semibold text-slate-600">{ementa.length} opções, {vegetarianos} vegetarianas</p>
 						</div>
 						<div className="text-left sm:text-right">
 							<p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500">Sexta-feira</p>
