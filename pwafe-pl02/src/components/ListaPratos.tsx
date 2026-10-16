@@ -11,7 +11,7 @@ export default function ListaPratos({ pratos }: ListaPratosProps) {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="flex max-w-4xl flex-col gap-4">
       {pratos.map((prato) => <CartaoPrato key={prato.id} prato={prato} />)}
     </div>
   );
