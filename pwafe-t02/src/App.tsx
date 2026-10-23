@@ -29,7 +29,7 @@ function App() {
             </section>
 
             <section className="flex flex-col gap-3">
-              <h2 className="text-xl font-bold text-slate-900">Projetos concluidos</h2>
+              <h2 className="text-xl font-bold text-slate-900">Projetos concluídos</h2>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                 {projectos.filter((projecto) => projecto.concluido).map((projecto) => (
                   <CartaoProjecto key={projecto.id} projecto={projecto} />
@@ -38,7 +38,7 @@ function App() {
             </section>
 
             <section className="flex flex-col gap-3">
-              <h2 className="text-xl font-bold text-slate-900">Projetos em Curso</h2>
+              <h2 className="text-xl font-bold text-slate-900">Projetos pendentes</h2>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                 {projectos.filter((projecto) => !projecto.concluido).map((projecto) => (
                   <CartaoProjecto key={projecto.id} projecto={projecto} />
